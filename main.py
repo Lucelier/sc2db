@@ -70,4 +70,4 @@ finally:
     # Verbindung zur Datenbank schließen
     connection.close()
 
-print("hoi, hoi, hoi")
+print("hoi, hoi, hoi, hoi")
