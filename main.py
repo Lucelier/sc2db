@@ -62,6 +62,14 @@ try:
         'protos': 'Protoss',
         'p': 'Protoss',
         'P': 'Protoss',
+        'pr': 'Protoss',
+        'pro': 'Protoss',
+        'prot': 'Protoss',
+        'proto': 'Protoss',
+        'Pr': 'Protoss',
+        'Pro': 'Protoss',
+        'Prot': 'Protoss',
+        'Proto': 'Protoss',
     }
 
     # Überprüfen, ob die Eingabe in der Rasse-Mapping-Tabelle existiert
