@@ -1,4 +1,5 @@
 import psycopg2
+from rasse_enum import Rasse, rasse_mapping
 
 # Verbindungsparameter
 dbname = "Test"
@@ -23,28 +24,23 @@ try:
     # Benutzer nach der gewünschten Rasse fragen
     rasse_input = input("Welche Rasse möchtest du anzeigen (Terraner, Zerg, Protoss)? ").strip().lower()
 
-    # Mapping von Eingabe zu tatsächlicher Rasse
-    rasse_mapping = {
-        'terraner': 'Terraner',
-        't': 'Terraner',
-        'teraner': 'Terraner',
-        'Teraner': 'Terraner',
-        'T': 'Terraner',
-        'zerg': 'Zerg',
-        'zwerg': 'Zerg',
-        'Zwerg': 'Zerg',
-        'z': 'Zerg',
-        'Z': 'Zerg',
-        'protoss': 'Protoss',
-        'Protos': 'Protoss',
-        'protos': 'Protoss',
-        'p': 'Protoss',
-        'P': 'Protoss',
-    }
+    # Funktion zur Überprüfung der Eingabe
+    def get_valid_rasse(input_str, mapping):
+        return mapping.get(input_str)
+
 
     # Überprüfen, ob die Eingabe in der Rasse-Mapping-Tabelle existiert
-    if rasse_input in rasse_mapping:
-        rasse = rasse_mapping[rasse_input]
+    selected_rasse = get_valid_rasse(rasse_input, rasse_mapping)
+
+    if selected_rasse is not None:
+        # Gültige Rasse gefunden, fortfahren
+        if selected_rasse == Rasse.Terraner:
+            rasse = 'Terraner'
+        elif selected_rasse == Rasse.Zerg:
+            rasse = 'Zerg'
+        elif selected_rasse == Rasse.Protoss:
+            rasse = 'Protoss'
+        # ...
     else:
         print("Ungültige Eingabe. Bitte gebe Terraner, Zerg oder Protoss ein.")
         connection.close()
