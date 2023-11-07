@@ -49,10 +49,10 @@ try:
     # Sucht Daten in der Datenbank
     query = "SELECT * FROM sc_2_einheiten WHERE \"Rasse\" = %s"
 
-    # SQL-Abfrage ausführen und Ergebnisse speichern
+    # SQL-Abfrage ausführen  Ergebnisse speichern
     cursor.execute(query, (rasse,))
 
-    # Ergebnisse abrufen
+    # Ergebnisse speichern und Ergebnisse abrufen
     results = cursor.fetchall()
 
     if results:
@@ -66,4 +66,4 @@ finally:
     # Verbindung zur Datenbank schließen
     connection.close()
 
-print("hoi, hoi, hoi, hoi")
+print("hoi, hoi, hoi")
