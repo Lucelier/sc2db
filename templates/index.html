@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StarCraft Einheiten Abfrage</title>
+</head>
+<body>
+    <h1>StarCraft Einheiten Abfrage</h1>
+
+    <form action="/abfrage" method="GET">
+        <label for="rasse">Rasse auswählen:</label>
+        <select name="rasse" id="rasse">
+            <option value="Terraner">Terraner</option>
+            <option value="Zerg">Zerg</option>
+            <option value="Protoss">Protoss</option>
+        </select>
+        <button type="submit">Abfrage starten</button>
+    </form>
+
+    {% if data %}
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Kosten Mineralien</th>
+            <th>Kosten Vespingas</th>
+            <!-- Fügen Sie hier weitere Spalten hinzu -->
+        </tr>
+        {% for unit in data %}
+        <tr>
+            <td>{{ unit.ID }}</td>
+            <td>{{ unit.Name }}</td>
+            <td>{{ unit.Kosten_Mineralien }}</td>
+            <td>{{ unit.Kosten_Vespingas }}</td>
+            <!-- Fügen Sie hier weitere Spalten hinzu -->
+        </tr>
+        {% endfor %}
+    </table>
+    {% endif %}
+</body>
+</html>
