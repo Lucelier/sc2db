@@ -35,13 +35,22 @@
     {% if data %}
     <table id="result-table" class="display">
         <thead>
-          <tr>
-            <th>ID</th>
-            <th>Name</th>
-            <th>Kosten Mineralien</th>
-            <th>Kosten Vespingas</th>
-            <!-- Fügen Sie hier weitere Spalten hinzu -->
-          </tr>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Kosten Mineralien</th>
+                <th>Kosten Vespingas</th>
+                <th>Sonstiges</th>
+                <th>Rasse</th>
+                <th>Versorgung</th>
+                <th>Bauzeit</th>
+                <th>Ausbildungsort</th>
+                <th>Trefferpunkte</th>
+                <th>Energie</th>
+                <th>Panzerung</th>
+                <th>Begrenzte Lebensdauer</th>
+                <th>Typ</th>
+            </tr>
         </thead>
         <tbody>
             {% for unit in data %}
@@ -50,7 +59,16 @@
                 <td>{{ unit.Name }}</td>
                 <td>{{ unit.Kosten_Mineralien }}</td>
                 <td>{{ unit.Kosten_Vespingas }}</td>
-                <!-- Fügen Sie hier weitere Spalten hinzu -->
+                <td>{{ unit.Sonstiges }}</td>
+                <td>{{ unit.Rasse }}</td>
+                <td>{{ unit.Versorgung }}</td>
+                <td>{{ unit.Bauzeit }}</td>
+                <td>{{ unit.Ausbildungsort }}</td>
+                <td>{{ unit.Trefferpunkte }}</td>
+                <td>{{ unit.Energie }}</td>
+                <td>{{ unit.Panzerung }}</td>
+                <td>{{ unit.Begrenzte_Lebensdauer }}</td>
+                <td>{{ unit.Typ }}</td>
             </tr>
             {% endfor %}
         </tbody>
