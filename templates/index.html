@@ -8,9 +8,59 @@
     <script type="text/javascript" charset="utf8" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.js"></script>
     <style>
-    #result-table_wrapper {
-        margin-top: 20px;
-    }
+        body {
+            background-color: #1C1C1C; /* Starcraft 2 HUD Hintergrundfarbe */
+            color: #FFFFFF; /* Weiß */
+            font-family: 'Arial', sans-serif;
+        }
+
+        #result-table_wrapper {
+            margin-top: 20px;
+            border: 1px solid #000080; /* Dunkelblau */
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            background-color: #1C1C1C; /* Starcraft 2 HUD Hintergrundfarbe */
+        }
+
+        #result-table {
+            width: 100%;
+            margin-top: 20px;
+            border-collapse: collapse;
+            border-spacing: 0;
+            box-shadow: 0 0 5px rgba(255, 255, 255, 0.1);
+            background-color: #2E2E2E; /* Starcraft 2 HUD Hintergrundfarbe */
+            color: #FFFFFF; /* Weiß */
+        }
+
+        #result-table th,
+        #result-table td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #404040; /* Dunkelgrau */
+        }
+
+        #result-table th {
+            background-color: #1C1C1C; /* Starcraft 2 HUD Header Hintergrundfarbe */
+            color: #66FF66; /* Hellgrün */
+        }
+
+        #result-table tbody tr:hover {
+            background-color: #404040; /* Dunkelgrau */
+        }
+
+        h1, label, button {
+            color: #FFFFFF; /* Weiß */
+        }
+
+        form {
+            margin-bottom: 20px;
+        }
+
+        #rasse {
+            background-color: #FFFFFF; /* Weiß */
+            color: #000000; /* Schwarz */
+        }
     </style>
 </head>
 <body>
@@ -27,54 +77,54 @@
     </form>
 
     <script>
-    $(document).ready( function () {
-        $('#result-table').DataTable();
-    });
+        $(document).ready( function () {
+            $('#result-table').DataTable();
+        });
     </script>
 
     {% if data %}
-    <table id="result-table" class="display">
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Name</th>
-                <th>Kosten Mineralien</th>
-                <th>Kosten Vespingas</th>
-                <th>Sonstiges</th>
-                <th>Rasse</th>
-                <th>Versorgung</th>
-                <th>Bauzeit</th>
-                <th>Ausbildungsort</th>
-                <th>Trefferpunkte</th>
-                <th>Schilde</th>
-                <th>Energie</th>
-                <th>Panzerung</th>
-                <th>Begrenzte Lebensdauer</th>
-                <th>Typ</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for unit in data %}
-            <tr>
-                <td>{{ unit.ID }}</td>
-                <td>{{ unit.Name }}</td>
-                <td>{{ unit.Kosten_Mineralien }}</td>
-                <td>{{ unit.Kosten_Vespingas }}</td>
-                <td>{{ unit.Sonstiges }}</td>
-                <td>{{ unit.Rasse }}</td>
-                <td>{{ unit.Versorgung }}</td>
-                <td>{{ unit.Bauzeit }}</td>
-                <td>{{ unit.Ausbildungsort }}</td>
-                <td>{{ unit.Trefferpunkte }}</td>
-                <td>{{ unit.Schilde }}</td>
-                <td>{{ unit.Energie }}</td>
-                <td>{{ unit.Panzerung }}</td>
-                <td>{{ unit.Begrenzte_Lebensdauer }}</td>
-                <td>{{ unit.Typ }}</td>
-            </tr>
-            {% endfor %}
-        </tbody>
-</table>
-{% endif %}
+        <table id="result-table" class="display">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Kosten Mineralien</th>
+                    <th>Kosten Vespingas</th>
+                    <th>Sonstiges</th>
+                    <th>Rasse</th>
+                    <th>Versorgung</th>
+                    <th>Bauzeit</th>
+                    <th>Ausbildungsort</th>
+                    <th>Trefferpunkte</th>
+                    <th>Schilde</th>
+                    <th>Energie</th>
+                    <th>Panzerung</th>
+                    <th>Begrenzte Lebensdauer</th>
+                    <th>Typ</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for unit in data %}
+                    <tr>
+                        <td>{{ unit.ID }}</td>
+                        <td>{{ unit.Name }}</td>
+                        <td>{{ unit.Kosten_Mineralien }}</td>
+                        <td>{{ unit.Kosten_Vespingas }}</td>
+                        <td>{{ unit.Sonstiges }}</td>
+                        <td>{{ unit.Rasse }}</td>
+                        <td>{{ unit.Versorgung }}</td>
+                        <td>{{ unit.Bauzeit }}</td>
+                        <td>{{ unit.Ausbildungsort }}</td>
+                        <td>{{ unit.Trefferpunkte }}</td>
+                        <td>{{ unit.Schilde }}</td>
+                        <td>{{ unit.Energie }}</td>
+                        <td>{{ unit.Panzerung }}</td>
+                        <td>{{ unit.Begrenzte_Lebensdauer }}</td>
+                        <td>{{ unit.Typ }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% endif %}
 </body>
 </html>
