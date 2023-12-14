@@ -4,13 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>StarCraft Einheiten Abfrage</title>
+    <title>StarCraft II Einheiten Abfrage</title>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.css">
     <script type="text/javascript" charset="utf8" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- Weitere Teile deines Head-Bereichs -->
 </head>
 
 <body>
@@ -98,6 +97,10 @@
         {% endif %}
 
     </div>
+
+    <!-- Include script.js for random dots -->
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+
 </body>
 
 </html>
