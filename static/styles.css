@@ -46,12 +46,12 @@ body {
 }
 
 #result-table tbody tr:hover {
-    background-color: #0388fc; /* Dunkelgrau */
+    background-color: #000000; /* Schwarz */
 }
 
 /* Farbänderungen für die Terraner-Einheiten */
 #result-table tbody tr.terraner {
-    color: #FF0000 !important; /* !important erhöht die Spezifität */
+    color: #FF0000 !important; /* Rot */
 }
 
 /* Farbänderungen für die Zerg-Einheiten */
@@ -61,5 +61,5 @@ body {
 
 /* Farbänderungen für die Protoss-Einheiten */
 #result-table tbody tr.protoss {
-    color: #3369FF; /* Hellblau */
+    color: #3369FF; /* Blau */
 }
