@@ -1,60 +1,106 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>StarCraft Einheiten Abfrage</title>
+    <title>StarCraft II Einheiten Abfrage</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.css">
     <script type="text/javascript" charset="utf8" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.js"></script>
-    <style>
-    #result-table_wrapper {
-        margin-top: 20px;
-    }
-    </style>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </head>
+
 <body>
-    <h1>StarCraft Einheiten Abfrage</h1>
+    <!-- Inhalt begrenzen und zentrieren -->
+    <div class="container">
+        <h1 class="mt-5">StarCraft Einheiten Abfrage</h1>
 
-    <form action="/abfrage" method="GET">
-        <label for="rasse">Rasse auswählen:</label>
-        <select name="rasse" id="rasse">
-            <option value="Terraner">Terraner</option>
-            <option value="Zerg">Zerg</option>
-            <option value="Protoss">Protoss</option>
-        </select>
-        <button type="submit">Abfrage starten</button>
-    </form>
+        <!-- Benutzer kann Rasse auswählen -->
+        <form action="/abfrage" method="GET" class="mb-4">
+            <label for="rasse">Rasse auswählen:</label>
+            <select name="rasse" id="rasse" class="form-select">
+                <option value="Terraner">Terraner</option>
+                <option value="Zerg">Zerg</option>
+                <option value="Protoss">Protoss</option>
+            </select>
 
-    <script>
-    $(document).ready( function () {
-        $('#result-table').DataTable();
-    });
-    </script>
+            <!-- Abfrage starten Button -->
+            <button id="submit-btn" type="submit" class="btn btn-primary mt-2">Abfrage starten</button>
 
-    {% if data %}
-    <table id="result-table" class="display">
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>Name</th>
-            <th>Kosten Mineralien</th>
-            <th>Kosten Vespingas</th>
-            <!-- Fügen Sie hier weitere Spalten hinzu -->
-          </tr>
-        </thead>
-        <tbody>
-            {% for unit in data %}
-            <tr>
-                <td>{{ unit.ID }}</td>
-                <td>{{ unit.Name }}</td>
-                <td>{{ unit.Kosten_Mineralien }}</td>
-                <td>{{ unit.Kosten_Vespingas }}</td>
-                <!-- Fügen Sie hier weitere Spalten hinzu -->
-            </tr>
-            {% endfor %}
-        </tbody>
-</table>
-{% endif %}
+        </form>
+
+        <!-- gibt die Ressultate in form einer Tabelle aus -->
+        <script>
+            $(document).ready( function () {
+                $('#result-table').DataTable();
+            });
+        </script>
+
+        <!-- Ergebnisse werden nur angezeigt wen Daten vorhanden sind -->
+        {% if data %}
+
+        <table id="result-table" class="display">
+            <thead>
+                <tr>
+
+                    <!-- Spaltennamen und zugehörigkeit der Spalten -->
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Kosten Mineralien</th>
+                    <th>Kosten Vespingas</th>
+                    <th>Sonstiges</th>
+                    <th>Rasse</th>
+                    <th>Versorgung</th>
+                    <th>Bauzeit</th>
+                    <th>Ausbildungsort</th>
+                    <th>Trefferpunkte</th>
+                    <th>Schilde</th>
+                    <th>Energie</th>
+                    <th>Panzerung</th>
+                    <th>Begrenzte Lebensdauer</th>
+                    <th>Typ</th>
+
+                </tr>
+            </thead>
+            <tbody>
+
+                {% for unit in data %}
+
+                <tr class="{% if unit.Rasse == 'Terraner' %}terraner{% elif unit.Rasse == 'Zerg' %}zerg{% elif unit.Rasse == 'Protoss' %}protoss{% endif %}">
+
+                    <!-- Spaltennamen und zugehörigkeit der Spalten -->
+                    <td>{{ unit.ID }}</td>
+                    <td>{{ unit.Name }}</td>
+                    <td>{{ unit.Kosten_Mineralien }}</td>
+                    <td>{{ unit.Kosten_Vespingas }}</td>
+                    <td>{{ unit.Sonstiges }}</td>
+                    <td>{{ unit.Rasse }}</td>
+                    <td>{{ unit.Versorgung }}</td>
+                    <td>{{ unit.Bauzeit }}</td>
+                    <td>{{ unit.Ausbildungsort }}</td>
+                    <td>{{ unit.Trefferpunkte }}</td>
+                    <td>{{ unit.Schilde }}</td>
+                    <td>{{ unit.Energie }}</td>
+                    <td>{{ unit.Panzerung }}</td>
+                    <td>{{ unit.Begrenzte_Lebensdauer }}</td>
+                    <td>{{ unit.Typ }}</td>
+
+                </tr>
+
+                {% endfor %}
+
+            </tbody>
+        </table>
+
+        {% endif %}
+
+    </div>
+
+    <!-- Include script.js for random dots -->
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+
 </body>
+
 </html>
