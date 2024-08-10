@@ -46,21 +46,34 @@
                 <tr>
 
                     <!-- Spaltennamen und zugehörigkeit der Spalten -->
-                    <th>ID</th>
-                    <th>Name</th>
-                    <th>Kosten Mineralien</th>
-                    <th>Kosten Vespingas</th>
-                    <th>Sonstiges</th>
-                    <th>Rasse</th>
-                    <th>Versorgung</th>
-                    <th>Bauzeit</th>
-                    <th>Ausbildungsort</th>
-                    <th>Trefferpunkte</th>
-                    <th>Schilde</th>
-                    <th>Energie</th>
-                    <th>Panzerung</th>
-                    <th>Begrenzte Lebensdauer</th>
-                    <th>Typ</th>
+                    <th>id</th>
+                    <th>name</th>
+                    <th>rasse</th>
+                    <th>produktion</th>
+                    <th>benoetigt</th>
+                    <th>kosten_mineralien</th>
+                    <th>kosten_vespingas</th>
+                    <th>kosten_energie</th>
+                    <th>ausbildungsdauer</th>
+                    <th>versorgung</th>
+                    <th>trefferpunkte</th>
+                    <th>schilde</th>
+                    <th>panzerung</th>
+                    <th>energie_minimum</th>
+                    <th>energie_maximum</th>
+                    <th>is_psionisch</th>
+                    <th>is_heroisch</th>
+                    <th>is_ground_air</th>
+                    <th>is_bio_mech</th>
+                    <th>is_leicht_gepanzert_massiv</th>
+                    <th>lebensdauer</th>
+                    <th>sicht</th>
+                    <th>tempo</th>
+                    <th>attack_damage</th>
+                    <th>attack_attacks</th>
+                    <th>attack_target</th>
+                    <th>attack_cooldown</th>
+                    <th>attack_range</th>
 
                 </tr>
             </thead>
@@ -71,21 +84,34 @@
                 <tr class="{% if unit.Rasse == 'Terraner' %}terraner{% elif unit.Rasse == 'Zerg' %}zerg{% elif unit.Rasse == 'Protoss' %}protoss{% endif %}">
 
                     <!-- Spaltennamen und zugehörigkeit der Spalten -->
-                    <td>{{ unit.ID }}</td>
-                    <td>{{ unit.Name }}</td>
-                    <td>{{ unit.Kosten_Mineralien }}</td>
-                    <td>{{ unit.Kosten_Vespingas }}</td>
-                    <td>{{ unit.Sonstiges }}</td>
-                    <td>{{ unit.Rasse }}</td>
-                    <td>{{ unit.Versorgung }}</td>
-                    <td>{{ unit.Bauzeit }}</td>
-                    <td>{{ unit.Ausbildungsort }}</td>
-                    <td>{{ unit.Trefferpunkte }}</td>
-                    <td>{{ unit.Schilde }}</td>
-                    <td>{{ unit.Energie }}</td>
-                    <td>{{ unit.Panzerung }}</td>
-                    <td>{{ unit.Begrenzte_Lebensdauer }}</td>
-                    <td>{{ unit.Typ }}</td>
+                    <td>{{ unit.id }}</td>
+                    <td>{{ unit.name }}</td>
+                    <td>{{ unit.rasse }}</td>
+                    <td>{{ unit.produktion }}</td>
+                    <td>{{ unit.benoetigt }}</td>
+                    <td>{{ unit.kosten_mineralien }}</td>
+                    <td>{{ unit.kosten_vespingas }}</td>
+                    <td>{{ unit.kosten_energie }}</td>
+                    <td>{{ unit.ausbildungsdauer }}</td>
+                    <td>{{ unit.versorgung }}</td>
+                    <td>{{ unit.trefferpunkte }}</td>
+                    <td>{{ unit.schilde }}</td>
+                    <td>{{ unit.panzerung }}</td>
+                    <td>{{ unit.energie_minimum }}</td>
+                    <td>{{ unit.energie_maximum }}</td>
+                    <td>{{ unit.is_psionisch }}</td>
+                    <td>{{ unit.is_heroisch }}</td>
+                    <td>{{ unit.is_ground_air }}</td>
+                    <td>{{ unit.is_bio_mech }}</td>
+                    <td>{{ unit.is_leicht_gepanzert_massiv }}</td>
+                    <td>{{ unit.lebensdauer }}</td>
+                    <td>{{ unit.sicht }}</td>
+                    <td>{{ unit.tempo }}</td>
+                    <td>{{ unit.attack_damage }}</td>
+                    <td>{{ unit.attack_attacks }}</td>
+                    <td>{{ unit.attack_target }}</td>
+                    <td>{{ unit.attack_cooldown }}</td>
+                    <td>{{ unit.attack_range }}</td>
 
                 </tr>
 

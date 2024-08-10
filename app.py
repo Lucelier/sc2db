@@ -26,7 +26,7 @@ def abfrage():
         results = query_database(connection, rasse)
 
         if results is not None:
-            column_names = ["id", "name", "rasse", "produktion", "benoetigt", "kosten_mineralien", "kosten_vespingas", "kosten_energie", "ausbildungsdauer", "versorgung", "trefferpunkte", "schild", "panzerung", "energie_minimum", "energie_maximum", "is_psionisch", "is_heroisch", "is_ground_air", "is_bio_mech", "is_leicht_gepanzert_massiv", "lebensdauer", "sicht", "tempo", "attack_damage", "attack_attacks", "attack_target", "attack_cooldown", "attack_range"]
+            column_names = ["id", "name", "rasse", "produktion", "benoetigt", "kosten_mineralien", "kosten_vespingas", "kosten_energie", "ausbildungsdauer", "versorgung", "trefferpunkte", "schilde", "panzerung", "energie_minimum", "energie_maximum", "is_psionisch", "is_heroisch", "is_ground_air", "is_bio_mech", "is_leicht_gepanzert_massiv", "lebensdauer", "sicht", "tempo", "attack_damage", "attack_attacks", "attack_target", "attack_cooldown", "attack_range"]
             extracted_data = [dict(zip(column_names, row)) for row in results]
             return render_template('index.html', data=extracted_data)
 
