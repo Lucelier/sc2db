@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>StarCraft II Einheiten Abfrage</title>
+    <!-- Einbinden von CSS-Dateien -->
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.css">
     <script type="text/javascript" charset="utf8" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -13,120 +14,61 @@
 </head>
 
 <body>
-    <!-- Inhalt begrenzen und zentrieren -->
-    <div class="container">
-        <h1 class="mt-5">StarCraft Einheiten Abfrage</h1>
+    <!-- Hauptcontainer für die Seite -->
+    <div class="container mt-5">
+        <div class="row">
+            <!-- Suchformular -->
+            <div class="col-md-4 mb-4">
+                <!-- Abschnitt für das Formular -->
+                <h2>Rasse auswählen:</h2>
+                <form action="/abfrage" method="GET">
+                    <div class="mb-3">
+                        <label for="rasse" class="form-label">Rasse auswählen:</label>
+                        <!-- Dropdown-Menü zur Auswahl der Rasse -->
+                        <select name="rasse" id="rasse" class="form-select">
+                            <option value="Terraner">Terraner</option>
+                            <option value="Zerg">Zerg</option>
+                            <option value="Protoss">Protoss</option>
+                        </select>
+                    </div>
+                    <!-- Button zum Absenden des Formulars -->
+                    <button id="submit-btn" type="submit" class="btn btn-primary w-100">Abfrage starten</button>
+                </form>
+            </div>
 
-        <!-- Benutzer kann Rasse auswählen -->
-        <form action="/abfrage" method="GET" class="mb-4">
-            <label for="rasse">Rasse auswählen:</label>
-            <select name="rasse" id="rasse" class="form-select">
-                <option value="Terraner">Terraner</option>
-                <option value="Zerg">Zerg</option>
-                <option value="Protoss">Protoss</option>
-            </select>
-
-            <!-- Abfrage starten Button -->
-            <button id="submit-btn" type="submit" class="btn btn-primary mt-2">Abfrage starten</button>
-
-        </form>
-
-        <!-- gibt die Ressultate in form einer Tabelle aus -->
-        <script>
-            $(document).ready( function () {
-                $('#result-table').DataTable();
-            });
-        </script>
-
-        <!-- Ergebnisse werden nur angezeigt wen Daten vorhanden sind -->
-        {% if data %}
-
-        <table id="result-table" class="display">
-            <thead>
-                <tr>
-
-                    <!-- Spaltennamen und zugehörigkeit der Spalten -->
-                    <th>id</th>
-                    <th>Name</th>
-                    <th>Rasse</th>
-                    <th>Hergestellt in</th>
-                    <th>Benötigt</th>
-                    <th>Mineralien</th>
-                    <th>Vespingas</th>
-                    <th>Kosten Energie</th>
-                    <th>Ausbildungsdauer</th>
-                    <th>Versorgung benötigt</th>
-                    <th>Trefferpunkte</th>
-                    <th>Schilde</th>
-                    <th>Panzerung</th>
-                    <th>Energie minimum</th>
-                    <th>Energie maximum</th>
-                    <th>Psionisch</th>
-                    <th>Heroisch</th>
-                    <th>Ground/Air</th>
-                    <th>Bio/Mech</th>
-                    <th>Leicht/Gepanzert/Massiv</th>
-                    <th>Lebensdauer</th>
-                    <th>Sicht</th>
-                    <th>Tempo</th>
-                    <th>Schaden</th>
-                    <th>Angriffe</th>
-                    <th>Ziele</th>
-                    <th>Cooldown</th>
-                    <th>Reichweite</th>
-
-                </tr>
-            </thead>
-            <tbody>
-
-                {% for unit in data %}
-
-                <tr class="{% if unit.Rasse == 'Terraner' %}terraner{% elif unit.Rasse == 'Zerg' %}zerg{% elif unit.Rasse == 'Protoss' %}protoss{% endif %}">
-
-                    <!-- Spaltennamen und zugehörigkeit der Spalten -->
-                    <td>{{ unit.id }}</td>
-                    <td>{{ unit.name }}</td>
-                    <td>{{ unit.rasse }}</td>
-                    <td>{{ unit.produktion }}</td>
-                    <td>{{ unit.benoetigt }}</td>
-                    <td>{{ unit.kosten_mineralien }}</td>
-                    <td>{{ unit.kosten_vespingas }}</td>
-                    <td>{{ unit.kosten_energie }}</td>
-                    <td>{{ unit.ausbildungsdauer }}</td>
-                    <td>{{ unit.versorgung }}</td>
-                    <td>{{ unit.trefferpunkte }}</td>
-                    <td>{{ unit.schilde }}</td>
-                    <td>{{ unit.panzerung }}</td>
-                    <td>{{ unit.energie_minimum }}</td>
-                    <td>{{ unit.energie_maximum }}</td>
-                    <td>{{ unit.is_psionisch }}</td>
-                    <td>{{ unit.is_heroisch }}</td>
-                    <td>{{ unit.is_ground_air }}</td>
-                    <td>{{ unit.is_bio_mech }}</td>
-                    <td>{{ unit.is_leicht_gepanzert_massiv }}</td>
-                    <td>{{ unit.lebensdauer }}</td>
-                    <td>{{ unit.sicht }}</td>
-                    <td>{{ unit.tempo }}</td>
-                    <td>{{ unit.attack_damage }}</td>
-                    <td>{{ unit.attack_attacks }}</td>
-                    <td>{{ unit.attack_target }}</td>
-                    <td>{{ unit.attack_cooldown }}</td>
-                    <td>{{ unit.attack_range }}</td>
-
-                </tr>
-
-                {% endfor %}
-
-            </tbody>
-        </table>
-
-        {% endif %}
-
+            <!-- Bereich für die Ergebnisse -->
+            <div class="col-md-8">
+                <!-- Überprüfung, ob Daten vorhanden sind -->
+                {% if data %}
+                    <div class="row">
+                        <!-- Durchlaufen der Daten und Erstellen von Karten für jede Einheit -->
+                        {% for unit in data %}
+                        <div class="col-md-6 mb-4">
+                            <div class="card">
+                                <div class="card-body">
+                                    <!-- Titel der Karte mit Namen der Einheit -->
+                                    <h5 class="card-title">{{ unit.name }}</h5>
+                                    <!-- Weitere Informationen zur Einheit -->
+                                    <p class="card-text">Rasse: {{ unit.rasse }}</p>
+                                    <p class="card-text">Schaden: {{ unit.attack_damage }}</p>
+                                    <p class="card-text">Hergestellt in: {{ unit.produktion }}</p>
+                                    <!-- Button für Details -->
+                                    <a href="#" class="btn btn-primary">Details anzeigen</a>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    <!-- Nachricht, wenn keine Daten vorhanden sind -->
+                    <p>Keine Daten verfügbar. Bitte wählen Sie eine Rasse aus und starten Sie die Abfrage.</p>
+                {% endif %}
+            </div>
+        </div>
     </div>
 
-    <!-- Include script.js for random dots -->
+    <!-- Einbinden von JavaScript-Dateien -->
     <script src="{{ url_for('static', filename='script.js') }}"></script>
-
 </body>
 
 </html>
