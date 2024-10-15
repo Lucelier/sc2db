@@ -32,14 +32,14 @@ body {
     margin-bottom: 10px; /* Abstand unter dem Button */
 }
 
+#submit-btn:hover {
+    background: radial-gradient(circle, #0056b3, #00c8ff); /* Umgekehrter radialer Verlauf bei Hover */
+}
+
 #rasse {    /* Design des Drop-Down Menüs */
     background-color: #2d2d2d;
     color: #f4f4f4;
     border: none; /* Keine Rahmenlinie um das Menü */
-    border-radius: 2px; /* Abgerundete Ecken mit einem Radius von 2px */
+    border-radius: 3px; /* Abgerundete Ecken mit einem Radius von 3px */
     margin-bottom: 20px; /* Abstand unter dem Dropdown-Menü */
-}
-
-#submit-btn:hover {
-    background-color: #0088cc; /* Dunkleres Blau beim Hover, um visuelles Feedback zu geben */
 }
