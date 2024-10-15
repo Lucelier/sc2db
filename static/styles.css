@@ -1,65 +1,45 @@
-/* Bootstrap CSS */
-@import url('https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css');
-
-/* Hintergrund */
 body {
     background-color: #000000; /* Starcraft 2 HUD Hintergrundfarbe */
     color: #ffd700; /* Gold */
     font-family: 'Arial', sans-serif;
 }
 
-/* Tabellen aussehen */
-#result-table_wrapper {
-    margin-top: 20px;
-    border: 1px solid #000080; /* Dunkelblau */
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    background-color: #FFFFFF; /* Starcraft 2 HUD Hintergrundfarbe */
+.container {
+    max-width: 1200px; /* Maximale Breite für die Hauptinhaltscontainer auf größeren Bildschirmen */
+    margin: auto; /* Zentriert den Container horizontal in der Mitte der Seite */
 }
 
-#submit-btn {
-    background: radial-gradient(circle, #00c8ff, #0056b3); /* Hell-dunkelblauer radialer Verlauf */
-    color: #FFFFFF; /* Textfarbe des Buttons */
-    padding: 10px 20px; /* Innenabstand des Buttons */
-    border: none; /* Keine Rahmenlinie */
-    border-radius: 5px; /* Abrundung der Ecken */
-    cursor: pointer; /* Zeiger-Cursor bei Hover */
+.card {
+    background-color: #2d2d2d; /* Hintergrundfarbe für die Karten (dunkleres Grau für Kontrast zum Haupt-Hintergrund) */
+    color: #f4f4f4; /* Textfarbe innerhalb der Karten, um gut auf dem dunklen Hintergrund sichtbar zu sein */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Leichter Schatteneffekt, um die Karte leicht hervorzuheben */
+    border-radius: 8px; /* Abgerundete Ecken für die Karten */
+    transition: transform 0.3s ease; /* Übergangseffekt beim Hover: sanfte Animation */
+}
+
+.card:hover {
+    transform: scale(1.02); /* Beim Hover wird die Karte um 5% größer, um Interaktivität zu simulieren */
+}
+
+#submit-btn {   /* Design des "Suchen" buttons */
+    background: radial-gradient(circle, #00c8ff, #0056b3); /* Radialer (kreisförmiger) Verlauf von Hellblau zu Dunkelblau */
+    color: #303030; /* Dunkelgraue Textfarbe */
+    padding: 13px 570px; /* Innenabstand: oben/unten 13px, links/rechts 570px */
+    border: none; /* Keine Rahmenlinie um den Button */
+    border-radius: 4px; /* Abgerundete Ecken mit einem Radius von 4px */
+    cursor: pointer; /* Zeigt den "Zeiger"-Cursor bei Hover an */
+    font-size: 18px; /* Textgröße erhöhen, z.B. auf 18px */
+    margin-bottom: 10px; /* Abstand unter dem Button */
+}
+
+#rasse {    /* Design des Drop-Down Menüs */
+    background-color: #2d2d2d;
+    color: #f4f4f4;
+    border: none; /* Keine Rahmenlinie um das Menü */
+    border-radius: 2px; /* Abgerundete Ecken mit einem Radius von 2px */
+    margin-bottom: 20px; /* Abstand unter dem Dropdown-Menü */
 }
 
 #submit-btn:hover {
-    background: radial-gradient(circle, #0056b3, #00c8ff); /* Umgekehrter radialer Verlauf bei Hover */
-}
-
-#result-table th,
-#result-table td {
-    padding: 12px;
-    text-align: left;
-    border-bottom: 1px solid #212121; /* Dunkelgrau */
-}
-
-/* Kopfzeile der Tabelle mit Sternenhimmel-Effekt */
-#result-table th {
-    background-color: #17298a; /* Dunkelblau für den Sternenhimmel */
-    color: #dadada; /* Weiß für den Text */
-    position: relative;
-}
-
-#result-table tbody tr:hover {
-    background-color: #000000; /* Weiss */
-}
-
-/* Farbänderungen für die Terraner-Einheiten */
-#result-table tbody tr.terraner {
-    color: #FF0000 !important; /* Rot */
-}
-
-/* Farbänderungen für die Zerg-Einheiten */
-#result-table tbody tr.zerg {
-    color: #A135FF; /* Violett */
-}
-
-/* Farbänderungen für die Protoss-Einheiten */
-#result-table tbody tr.protoss {
-    color: #3369FF; /* Blau */
+    background-color: #0088cc; /* Dunkleres Blau beim Hover, um visuelles Feedback zu geben */
 }
