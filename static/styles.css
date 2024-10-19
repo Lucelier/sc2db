@@ -17,6 +17,10 @@ body {
     transition: transform 0.3s ease; /* Übergangseffekt beim Hover: sanfte Animation */
 }
 
+.btn-primary {
+    color: #0088ff;
+}
+
 .card:hover {
     transform: scale(1.02); /* Beim Hover wird die Karte um 5% größer, um Interaktivität zu simulieren */
 }
@@ -29,7 +33,6 @@ body {
     border-radius: 4px; /* Abgerundete Ecken mit einem Radius von 4px */
     cursor: pointer; /* Zeigt den "Zeiger"-Cursor bei Hover an */
     font-size: 18px; /* Textgröße erhöhen, z.B. auf 18px */
-    margin-bottom: 10px; /* Abstand unter dem Button */
 }
 
 #submit-btn:hover {
